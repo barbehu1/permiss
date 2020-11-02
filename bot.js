@@ -1,8 +1,5 @@
-const Discord = require('discord.js'),
-    bot = new Discord.Client({
-        partials: ['MESSAGE', 'REACTION']
-    }),
-    config = require('./config.json')
+const Discord = require('discord.js')
+const bot = new Discord.Client()
 
 bot.on('ready', function () {
     console.log("Je suis connecté !")
