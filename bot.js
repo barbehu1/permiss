@@ -8,7 +8,7 @@ bot.on('ready', function () {
     console.log("Je suis connecté !")
 })
 
-bot.login('NzcwNjUzOTk0MTQyMDA3MzM5.X5gtdg.Lfq_miBBduKzSeD7Jtm6zj-WHGA')
+bot.login(process.env.TOKEN)
 
 const choixRoles = new Discord.MessageEmbed()
 	.setColor('#0099ff')
