@@ -8,7 +8,7 @@ bot.on('ready', function () {
 bot.login(process.env.TOKEN)
 
 const choixRoles = new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#faa61a')
 	.setTitle('À quels salons souhaites-tu avoir accès ?')
     .setDescription('Choisi en réagissant à ce message !')
     .setDescription('🐘  =>  Planet Zoo\n⚔️  =>  League of Legends\n👨‍🚀  =>  Among Us')
