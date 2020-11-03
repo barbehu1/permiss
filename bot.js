@@ -61,14 +61,15 @@ bot.on('guildMemberAdd', member => {
                                         }
                                     })
                                 }
+                                setTimeout(function(){ 
+                                    if(member.roles.cache.find(role => role.id === '772735613501571074')){
+                                        member.roles.remove('772735613501571074')
+                                    }
+                                }, 15000);
                             }
                         })
                     })
-                setTimeout(function(){ 
-                    if(member.roles.cache.find(role => role.id === '772735613501571074')){
-                        member.roles.remove('772735613501571074')
-                    }
-                }, 15000);
+                
                 })
             .catch(console.error)
         .catch(console.error)
@@ -124,14 +125,15 @@ bot.on('message', message => {
                                         }
                                     })
                                 }
+                                setTimeout(function(){
+                                    if(member.roles.cache.find(role => role.id === '772735613501571074')){
+                                        member.roles.remove('772735613501571074')
+                                    }
+                                }, 15000);
                             }
                         })
                     })
-                setTimeout(function(){
-                    if(member.roles.cache.find(role => role.id === '772735613501571074')){
-                        member.roles.remove('772735613501571074')
-                    }
-                }, 15000);
+                
                 })
             .catch(console.error)
         .catch(console.error)
