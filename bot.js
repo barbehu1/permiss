@@ -22,54 +22,7 @@ bot.on('guildMemberAdd', member => {
                         reaction.react('🐘'),
                         reaction.react('⚔️'),
                         reaction.react('👨‍🚀')
-
-                        bot.on('messageReactionAdd', reaction => {
-                            if(!reaction.users.cache.last().bot){
-                                if(reaction.emoji.name === '🐘'){
-                                    let userID = reaction.users.cache.last().id
-                                    reaction.message.channel.guild.members.fetch(userID).then(membre =>{
-                                        if(member.roles.cache.find(role => role.id === '772736160622444555')){
-                                            reaction.message.channel.send(`<@${userID}>, vous avez déjà ce rôle.`)
-                                        }
-                                        else{
-                                            membre.roles.add(['772736160622444555','772519024092774420'])
-                                            reaction.message.channel.send(`<@${userID}>, vous avez maintenant accès aux salons Planet Zoo.`)
-                                        }
-                                    })
-                                }
-                                else if(reaction.emoji.name === '⚔️'){
-                                    let userID = reaction.users.cache.last().id
-                                    reaction.message.channel.guild.members.fetch(userID).then(membre =>{
-                                        if(member.roles.cache.find(role => role.id === '772736183763206165')){
-                                            reaction.message.channel.send(`<@${userID}>, vous avez déjà ce rôle.`)
-                                        }
-                                        else {
-                                            membre.roles.add(['772736183763206165','772519024092774420'])
-                                            reaction.message.channel.send(`<@${userID}>, vous avez maintenant accès aux salons League of Legends.`)
-                                        }
-                                    })
-                                }
-                                else if(reaction.emoji.name === '👨‍🚀'){
-                                    let userID = reaction.users.cache.last().id
-                                    reaction.message.channel.guild.members.fetch(userID).then(membre =>{
-                                        if(member.roles.cache.find(role => role.id === '772736213068021781')){
-                                            reaction.message.channel.send(`<@${userID}>, vous avez déjà ce rôle.`)
-                                        }
-                                        else{
-                                            membre.roles.add(['772736213068021781','772519024092774420'])
-                                            reaction.message.channel.send(`<@${userID}>, vous avez maintenant accès aux salons Among Us.`)
-                                        }
-                                    })
-                                }
-                                setTimeout(function(){ 
-                                    if(member.roles.cache.find(role => role.id === '772735613501571074')){
-                                        member.roles.remove('772735613501571074')
-                                    }
-                                }, 15000);
-                            }
-                        })
                     })
-                
                 })
             .catch(console.error)
         .catch(console.error)
@@ -77,68 +30,71 @@ bot.on('guildMemberAdd', member => {
 
 bot.on('message', message => {
     if (message.content === '!test') {
-        let member = message.member
+        const member = message.member
         bot.channels.fetch("772518742516957184")
             .then(channel => {
-                message.reply('bienvenu(e) sur le serveur!'),
+                channel.send(`<@${message.member.user.id}>, bienvenu(e) sur le serveur!`),
                 channel.send(choixRoles)
                     .then(reaction => {
                         reaction.react('🐘'),
                         reaction.react('⚔️'),
                         reaction.react('👨‍🚀')
-
-                        bot.on('messageReactionAdd', reaction => {
-                            if(!reaction.users.cache.last().bot){
-                                if(reaction.emoji.name === '🐘'){
-                                    let userID = reaction.users.cache.last().id
-                                    reaction.message.channel.guild.members.fetch(userID).then(membre =>{
-                                        if(member.roles.cache.find(role => role.id === '772736160622444555')){
-                                            reaction.message.channel.send(`<@${userID}>, vous avez déjà ce rôle.`)
-                                        }
-                                        else{
-                                            membre.roles.add(['772736160622444555','772519024092774420'])
-                                            reaction.message.channel.send(`<@${userID}>, vous avez maintenant accès aux salons Planet Zoo.`)
-                                        }
-                                    })
-                                }
-                                else if(reaction.emoji.name === '⚔️'){
-                                    let userID = reaction.users.cache.last().id
-                                    reaction.message.channel.guild.members.fetch(userID).then(membre =>{
-                                        if(member.roles.cache.find(role => role.id === '772736183763206165')){
-                                            reaction.message.channel.send(`<@${userID}>, vous avez déjà ce rôle.`)
-                                        }
-                                        else {
-                                            membre.roles.add(['772736183763206165','772519024092774420'])
-                                            reaction.message.channel.send(`<@${userID}>, vous avez maintenant accès aux salons League of Legends.`)
-                                        }
-                                    })
-                                }
-                                else if(reaction.emoji.name === '👨‍🚀'){
-                                    let userID = reaction.users.cache.last().id
-                                    reaction.message.channel.guild.members.fetch(userID).then(membre =>{
-                                        if(member.roles.cache.find(role => role.id === '772736213068021781')){
-                                            reaction.message.channel.send(`<@${userID}>, vous avez déjà ce rôle.`)
-                                        }
-                                        else{
-                                            membre.roles.add(['772736213068021781','772519024092774420'])
-                                            reaction.message.channel.send(`<@${userID}>, vous avez maintenant accès aux salons Among Us.`)
-                                        }
-                                    })
-                                }
-                                setTimeout(function(){
-                                    if(member.roles.cache.find(role => role.id === '772735613501571074')){
-                                        member.roles.remove('772735613501571074')
-                                    }
-                                }, 15000);
-                            }
-                        })
                     })
-                
+                    .catch(console.error)
                 })
-            .catch(console.error)
-        .catch(console.error)
+            .catch(console.error);
     }
 })
+
+bot.on('messageReactionAdd', reaction => {
+    if(!reaction.users.cache.last().bot){
+        if(reaction.emoji.name === '🐘'){
+            let userID = reaction.users.cache.last().id
+            reaction.message.channel.guild.members.fetch(userID).then(membre =>{
+                //if(member.roles.cache.find(role => role.id === '772736160622444555')){
+                //    reaction.message.channel.send(`<@${userID}>, vous avez déjà ce rôle.`)
+                //}
+                //else{
+                    membre.roles.add(['772736160622444555','772519024092774420'])
+                    reaction.message.channel.send(`<@${userID}>, vous avez maintenant accès aux salons Planet Zoo.`)
+                //}
+            })
+        }
+        else if(reaction.emoji.name === '⚔️'){
+            let userID = reaction.users.cache.last().id
+            reaction.message.channel.guild.members.fetch(userID).then(membre =>{
+                //if(member.roles.cache.find(role => role.id === '772736183763206165')){
+                //    reaction.message.channel.send(`<@${userID}>, vous avez déjà ce rôle.`)
+                //}
+                //else {
+                    membre.roles.add(['772736183763206165','772519024092774420'])
+                    reaction.message.channel.send(`<@${userID}>, vous avez maintenant accès aux salons League of Legends.`)
+                //}
+            })
+        }
+        else if(reaction.emoji.name === '👨‍🚀'){
+            let userID = reaction.users.cache.last().id
+            reaction.message.channel.guild.members.fetch(userID).then(membre =>{
+                //if(member.roles.cache.find(role => role.id === '772736213068021781')){
+                //    reaction.message.channel.send(`<@${userID}>, vous avez déjà ce rôle.`)
+                //}
+                //else{
+                    membre.roles.add(['772736213068021781','772519024092774420'])
+                    reaction.message.channel.send(`<@${userID}>, vous avez maintenant accès aux salons Among Us.`)
+                //}
+            })
+        }
+        setTimeout(function(){
+            let userID = reaction.users.cache.last().id
+            reaction.message.channel.guild.members.fetch(userID).then(membre =>{
+                if(membre.roles.cache.find(role => role.id === '772735613501571074')){
+                    membre.roles.remove('772735613501571074')
+                }
+            })
+            .catch(console.error);
+        }, 15000);
+    }
+}) 
 
 /*function giveRoles(message){
     message.channel.send(choixRoles).then(reaction => {
