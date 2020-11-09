@@ -14,7 +14,7 @@ const choixRoles = new Discord.MessageEmbed()
     .setDescription('🐘  =>  Planet Zoo\n⚔️  =>  League of Legends\n👨‍🚀  =>  Among Us')
 
 bot.on('guildMemberAdd', member => {
-    bot.channels.fetch("772518742516957184")
+    bot.channels.fetch("774940633000312852")
             .then(channel => {
                 channel.send(`<@${member.user.id}>, bienvenu(e) sur le serveur!`),
                 channel.send(choixRoles)
@@ -28,6 +28,7 @@ bot.on('guildMemberAdd', member => {
         .catch(console.error)
 })
 
+/*
 bot.on('message', message => {
     if (message.content === '!test') {
         const member = message.member
@@ -44,7 +45,7 @@ bot.on('message', message => {
                 })
             .catch(console.error);
     }
-})
+})*/
 
 bot.on('messageReactionAdd', reaction => {
     if(!reaction.users.cache.last().bot){
@@ -55,7 +56,7 @@ bot.on('messageReactionAdd', reaction => {
                 //    reaction.message.channel.send(`<@${userID}>, vous avez déjà ce rôle.`)
                 //}
                 //else{
-                    membre.roles.add(['772736160622444555','772519024092774420'])
+                    membre.roles.add(['774944293831049216','770270243384852500'])
                     reaction.message.channel.send(`<@${userID}>, vous avez maintenant accès aux salons Planet Zoo.`)
                 //}
             })
@@ -67,7 +68,7 @@ bot.on('messageReactionAdd', reaction => {
                 //    reaction.message.channel.send(`<@${userID}>, vous avez déjà ce rôle.`)
                 //}
                 //else {
-                    membre.roles.add(['772736183763206165','772519024092774420'])
+                    membre.roles.add(['774944491034378241','770270243384852500'])
                     reaction.message.channel.send(`<@${userID}>, vous avez maintenant accès aux salons League of Legends.`)
                 //}
             })
@@ -79,7 +80,7 @@ bot.on('messageReactionAdd', reaction => {
                 //    reaction.message.channel.send(`<@${userID}>, vous avez déjà ce rôle.`)
                 //}
                 //else{
-                    membre.roles.add(['772736213068021781','772519024092774420'])
+                    membre.roles.add(['774944668541648946','770270243384852500'])
                     reaction.message.channel.send(`<@${userID}>, vous avez maintenant accès aux salons Among Us.`)
                 //}
             })
@@ -87,8 +88,8 @@ bot.on('messageReactionAdd', reaction => {
         setTimeout(function(){
             let userID = reaction.users.cache.last().id
             reaction.message.channel.guild.members.fetch(userID).then(membre =>{
-                if(membre.roles.cache.find(role => role.id === '772735613501571074')){
-                    membre.roles.remove('772735613501571074')
+                if(membre.roles.cache.find(role => role.id === '774940661790408724')){
+                    membre.roles.remove('774940661790408724')
                 }
             })
             .catch(console.error);
